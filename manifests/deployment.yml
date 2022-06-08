@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: saradhidockerhelloworld 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saradhidockerhelloworld
+  template:
+    metadata:
+      labels:
+        app: saradhidockerhelloworld 
+    spec:
+      containers:
+        - name: saradhidockerhelloworld 
+          image: pochelloworld.azurecr.io/saradhidockerhelloworld
+          ports:
+          - containerPort: 80
