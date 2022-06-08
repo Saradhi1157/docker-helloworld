@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '3491d60a-72a2-4a07-815f-6e6954ef7797'
   imageRepository: 'saradhidockerhelloworld'
   containerRegistry: 'pochelloworld.azurecr.io'
-  dockerfilePath: '/helloworld/Dockerfile'
+  dockerfilePath: '~/helloworld'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'pochelloworld65308a7f-auth'
 
