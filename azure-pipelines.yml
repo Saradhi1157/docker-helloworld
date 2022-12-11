@@ -90,10 +90,9 @@ stages:
           failure:
             steps:
             - script: |
-              condition:  ${{ parameters.lastsuccessful}}
+                git reset --hard $(lastsuccessful)
+              condition: ${{ parameters.lastsuccessful }}
 
-
-          
           success:
             steps:
             - script: |
