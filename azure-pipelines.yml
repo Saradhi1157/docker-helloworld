@@ -79,7 +79,7 @@ stages:
             steps:
             - task: AzureCLI@2
               inputs:
-                azureSubscription: '<YOUR SERIVICE CONNECTION>'
+                azureSubscription: 'Visual Studio Enterprise Subscription – MPN'
                 scriptType: 'bash'
                 scriptLocation: 'inlineScript'
                 inlineScript: ''
