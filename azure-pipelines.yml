@@ -84,4 +84,4 @@ stages:
             steps:
             - script: |
                 cd $(build.sourcesdirectory)     
-                git reset --hard HEAD^
+                git reset --hard HEAD^^^
