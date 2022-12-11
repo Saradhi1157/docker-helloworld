@@ -49,8 +49,8 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          git reset --hard $(LastKnownGoodConfiguration)
-      condition: ${{ parameters.useLastKnownGoodConfiguration }}
+          git reset --hard $(lastsuccessful)
+      condition: ${{ parameters.lastsuccessful }}
 
     - upload: manifests
       artifact: manifests
