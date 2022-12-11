@@ -18,6 +18,11 @@ variables:
   tag: '$(Build.BuildId)'
   imagePullSecret: 'pochelloworld65308a7f-auth'
 
+parameters:
+- name: lastsuccessful
+  displayName: Use last known stable configuration (if false the most recent commit will be used)?
+  type: boolean
+  default: true
   # Agent VM image name
   #vmImageName: 'ubuntu-latest'
 
@@ -77,9 +82,6 @@ stages:
         on:
           failure:
             steps:
-            - task: AzureCLI@2
-              inputs:
-                azureSubscription: 'defaultazure'
-                scriptType: 'bash'
-                scriptLocation: 'inlineScript'
-                inlineScript: ''
+            - script: |
+                cd $(build.sourcesdirectory)     
+                git reset --hard HEAD^
