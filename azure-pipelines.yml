@@ -84,8 +84,7 @@ stages:
             steps:
             - script: |
               condition:  ${{ parameters.lastsuccessful}}
-                cd $(build.sourcesdirectory)     
-                git reset --hard $(lastsuccessful)
+              
           
           success:
             steps:
