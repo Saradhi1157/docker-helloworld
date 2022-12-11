@@ -83,5 +83,11 @@ stages:
           failure:
             steps:
             - script: |
+              condition:  ${{ parameters.lastsuccessful}}
                 cd $(build.sourcesdirectory)     
                 git reset --hard $(lastsuccessful)
+          
+          success:
+            steps:
+            - script: |
+                echo " build is passed"
