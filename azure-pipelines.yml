@@ -74,4 +74,12 @@ stages:
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
-
+        on:
+          failure:
+            steps:
+            - task: AzureCLI@2
+              inputs:
+                azureSubscription: '<YOUR SERIVICE CONNECTION>'
+                scriptType: 'bash'
+                scriptLocation: 'inlineScript'
+                inlineScript: ''
