@@ -44,6 +44,13 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: PowerShell@2
+      displayName: Switch to last known good configuration
+      inputs:
+        targetType: 'inline'
+        script: |
+          git reset --hard $(LastKnownGoodConfiguration)
+      condition: ${{ parameters.useLastKnownGoodConfiguration }}
 
     - upload: manifests
       artifact: manifests
@@ -83,9 +90,8 @@ stages:
           failure:
             steps:
             - script: |
-                cd $(build.sourcesdirectory)     
-                git reset --hard $(lastsuccessful)
               condition:  ${{ parameters.lastsuccessful}}
+
 
           
           success:
