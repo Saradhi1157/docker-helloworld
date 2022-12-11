@@ -22,7 +22,7 @@ parameters:
 - name: lastsuccessful
   displayName: Use last known stable configuration (if false the most recent commit will be used)?
   type: boolean
-  default: false
+  default: true
   # Agent VM image name
   #vmImageName: 'ubuntu-latest'
 
